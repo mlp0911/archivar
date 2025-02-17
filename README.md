@@ -10,3 +10,20 @@ To address this issue, I purchased a Brother ADS-2800W document scanner with an 
 
 Archivar takes over when the document server is on, categorizing the files, applying OCR, adding a text layer, identifying the date of the correspondence, adjusting the filename, and moving the file to the appropriate storage location on the document server. All files can now be searched with respective indexing and search tools like DocFetcher or Lookeen. This solution has significantly reduced the time and effort required for managing physical correspondence, improving organization and retrieval efficiency.
 
+## Dependencies
+Ensure you have the following dependencies installed and configured before proceeding with the installation and setup:
+
+- Automatic document scanner, that allows for two staged categorization, configurable filenames and storage on local network shares. Or any other solution to populate the input directory with PDF files providing the required information.
+- Network Drive on always-on client to store scanned documents.
+  
+- Document Server (Linux OS)
+  - Python: Ensure you have Python installed on the document server (preferably Python 3.7 or later).
+  - Configparser: A Python module to handle configuration files. Included in the standard library.
+  - Subprocess: A Python module to spawn new processes. Included in the standard library.
+  - Datetime: A Python module to work with dates and times. Included in the standard library.
+  - RE: A Python module for regular expressions. Included in the standard library.
+  - OS: A Python module to interact with the operating system. Included in the standard library.  
+  - ocrmypdf: A command-line tool to add OCR text layer to PDFs. Install it using your package manager (e.g., sudo apt-get install ocrmypdf).
+  - pdftotext: A tool to extract text from PDF files. Install it using your package manager (e.g., sudo apt-get install poppler-utils).
+  - rsync: A utility for efficiently transferring and synchronizing files. Install it using your package manager (e.g., sudo apt-get install rsync).
+    
