@@ -63,7 +63,7 @@ Archivar will then ...
 With all PDF documents being searchable now, I am using search and index tools.
 Our family Windows-Laptop uses Lookeen, which is able to index network shares and offers full text search.
 I am currently playing around with DocFetcher and Recoll as well.
-After scanning the documents, they are immediately dropped in a cardboard archive box, one for each calendar year. In case I need the original it is rather easy to find again, in most cases it is sufficient to have the PDF at hand. In Germany the typical retention duration for documents is 10 years. Aftrr that time we shred most of the content of the respective archive box and only keep documents that we want to keep. The rest is still available as PDF.
+After scanning the documents, they are immediately dropped in a cardboard archive box, one for each calendar year. In case I need the original it is rather easy to find again, in most cases it is sufficient to have the PDF at hand. In Germany the typical retention duration for documents is 10 years. After that time we shred most of the content of the respective archive box and only keep documents that we want to keep. The rest is still available as PDF.
 
 ## How to contribute
 I am more than happy to learn, how to improve. I have some backlog ideas, like more openness and flexibility regarding the naming convention, how to deal with less flexible document scanners, and of course making this thing platform independent and build a containerized version. Reach out - don't freak out! ;-)
