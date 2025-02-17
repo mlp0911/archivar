@@ -27,7 +27,7 @@ Ensure you have the following dependencies installed and configured before proce
   - pdftotext: A tool to extract text from PDF files. Install it using your package manager (e.g., sudo apt-get install poppler-utils).
   - rsync: A utility for efficiently transferring and synchronizing files. Install it using your package manager (e.g., sudo apt-get install rsync).
     
-## Installation
+## How to build
 
     Install the Document Scanner
 
