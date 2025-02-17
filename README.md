@@ -18,11 +18,11 @@ Ensure you have the following dependencies installed and configured before proce
   
 - Document Server (Linux OS)
   - Python: Ensure you have Python installed on the document server (preferably Python 3.7 or later).
-  - Configparser: A Python module to handle configuration files. Included in the standard library.
-  - Subprocess: A Python module to spawn new processes. Included in the standard library.
-  - Datetime: A Python module to work with dates and times. Included in the standard library.
-  - RE: A Python module for regular expressions. Included in the standard library.
-  - OS: A Python module to interact with the operating system. Included in the standard library.  
+    - Configparser: A Python module to handle configuration files. Included in the standard library.
+    - Subprocess: A Python module to spawn new processes. Included in the standard library.
+    - Datetime: A Python module to work with dates and times. Included in the standard library.
+    - RE: A Python module for regular expressions. Included in the standard library.
+    - OS: A Python module to interact with the operating system. Included in the standard library.  
   - ocrmypdf: A command-line tool to add OCR text layer to PDFs. Install it using your package manager (e.g., sudo apt-get install ocrmypdf).
   - pdftotext: A tool to extract text from PDF files. Install it using your package manager (e.g., sudo apt-get install poppler-utils).
   - rsync: A utility for efficiently transferring and synchronizing files. Install it using your package manager (e.g., sudo apt-get install rsync).
