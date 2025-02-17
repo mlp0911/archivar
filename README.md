@@ -2,7 +2,7 @@
 A Python script for automated PDF processing, including OCR and archiving, to streamline document management.
 
 ## Overview
-Archivar is a document management tool designed to streamline the process of handling physical correspondence. By leveraging a document scanner with an automatic feeder, Archivar enables efficient scanning, categorization, and OCR processing of large volumes of documents. The scanned PDFs are named according to a defined convention, including the scan date, categories (e.g., household/bills), and a sequential number. The system integrates with a local network and a document server (Debian 12) to facilitate organized storage and easy retrieval.
+Archivar is a document management tool designed to streamline the process of handling physical correspondence. By leveraging a document scanner with an automatic feeder, Archivar enables efficient scanning, categorization, and OCR processing of large volumes of documents. The scanned PDFs are named according to a defined convention, including the scan date, categories (e.g., household/bills), and a sequential number. The system integrates with a local network and a document server (Linux OS) to facilitate organized storage and easy retrieval.
 
 ## Motivation
 Managing vast amounts of physical correspondence was a tedious and time-consuming task, requiring manual filing and hole-punching. This process made it difficult to locate specific documents when needed, such as for tax purposes.
@@ -14,7 +14,8 @@ Archivar takes over when the document server is on, categorizing the files, appl
 Ensure you have the following dependencies installed and configured before proceeding with the installation and setup:
 
 - Automatic document scanner, that allows for two staged categorization, configurable filenames and storage on local network shares. Or any other solution to populate the input directory with PDF files providing the required information.
-- Network Drive on always-on client to store scanned documents.
+  
+- Intermediate document strage: Network Drive on always-on client to store scanned documents.
   
 - Document Server (Linux OS)
   - Python: Ensure you have Python installed on the document server (preferably Python 3.7 or later).
@@ -29,29 +30,30 @@ Ensure you have the following dependencies installed and configured before proce
     
 ## How to build
 
-    Install the Document Scanner
+![ArchiverArchitektur drawio](https://github.com/user-attachments/assets/cc479eea-7e1f-40cc-93f1-12152e71a94a)
 
-        Follow the manufacturer's instructions to set up the Brother ADS-2800W scanner.
+### Setup shared network drive to collect scanned PDF documents
+Ensure that the network drive is accessible and grant read and write access for the relevant users to it. The respective credentials will be needed by the document scanner as well as the user that will be executing Archivar.
 
-        Connect the scanner to the local network.
+### Setup document scanner
+Follow the manufacturer's instructions to set up the scanner. Connect the scanner to the local network and to the shared network drive. Make sure that your scanner supports assigning two categories to your file and storing these as part of the filename (brother ADS-2800W supports this). Currently, Archivar expects the filename in the following format: 
 
-    Set Up Network Drive
+`YYYYMMDDHHMMSS-[Category1]-[Category2]-[SeqNo].pdf`
 
-        Ensure the network drive is accessible on the always-on client.
+### Setup document processing and storage
+I am using an intermediate document storage as I do not want my processing and storage server to be on at all times or have to start it before I scan documents. This is pretty much an usability and stakeholder acceptance requirement. Although Archivar is a python script it is not platform independent (yet).
 
-        Create a directory on the network drive to store scanned documents.
+- install software dependencies as described above.
+- decide where you want to place the script and the config file, e.g., `/usr/bin/local/archivar_30/` grant access to the executing user and make it executable.
+- fill in all required information into config file.
+- make sure that the user executing the script has read and write access to all relevant paths (intermediate input/ output storage, path to log-files, and final document storage).
+- decide in which cadence Archivar should look for new files, you can do so by using crontab or making it an systemd.service
 
-    Configure the Document Scanner
-
-        Set up the scanner to save scanned PDFs directly to the network drive.
-
-        Define the filename convention to include the scan date, categories, and a sequential number.
-
-    Install Debian 12 on Document Server
-
-        Download and install Debian 12 on your document server.
-
-        Ensure the server can access the network drive.
-
-    Install Required Software Dependencies
-    
+## how to use
+Once configured Archivar will be executed directly e.g. `python /usr/bin/local/archivar_30/archivar_30.py` or you execute it continuously utilizing crontab or systemd.services.
+Archivar will then ...
+1. iterate through all PDF files in `sourcedir` specified in `archivar_30.cfg` config file
+2. OCR the document, adding a text-layer.
+3. search for a valid date on the first page of the document to find out the document's original date.
+4. rename the document accordingly: `YYYYMMDD[o|x][SeqNo]-[Category1]-[Category2].pdf` [o|x] indicates if the date has been changed. o means that the date submitted by the scanner is used, x indicates that a new date has been identified in the document and has been used.
+5. Eventually all documents are 
