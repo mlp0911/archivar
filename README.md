@@ -49,7 +49,7 @@ I am using an intermediate document storage as I do not want my processing and s
 - make sure that the user executing the script has read and write access to all relevant paths (intermediate input/ output storage, path to log-files, and final document storage).
 - decide in which cadence Archivar should look for new files, you can do so by using crontab or making it an systemd.service
 
-## how to use
+## How to use
 Once configured Archivar will be executed directly e.g. `python /usr/bin/local/archivar_30/archivar_30.py` or you execute it continuously utilizing crontab or systemd.services.
 Archivar will then ...
 1. iterate through all PDF files in `sourcedir` specified in `archivar_30.cfg` config file
@@ -59,9 +59,12 @@ Archivar will then ...
 5. sync all documents to `destdir` specified in `archivar_30.cfg`, where [Category1] will be used as directory and [Category2] as subdirectory in which the document will be stored.
 6. log all activities to `logdir` specified in `archivar_30cfg`.
 
-## how to benefit
+## How to benefit
 With all PDF documents being searchable now, I am using search and index tools.
 Our family Windows-Laptop uses Lookeen, which is able to index network shares and offers full text search.
 I am currently playing around with DocFetcher and Recoll as well.
 After scanning the documents, they are immediately dropped in a cardboard archive box, one for each calendar year. In case I need the original it is rather easy to find again, in most cases it is sufficient to have the PDF at hand. In Germany the typical retention duration for documents is 10 years. Aftrr that time we shred most of the content of the respective archive box and only keep documents that we want to keep. The rest is still available as PDF.
+
+## How to contribute
+I am more than happy to learn, how to improve. I have some backlog ideas, like more openness and flexibility regarding the naming convention, how to deal with less flexible document scanners, and of course making this thing platform independent and build a containerized version. Reach out - don't freak out! ;-)
 
