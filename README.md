@@ -56,4 +56,12 @@ Archivar will then ...
 2. OCR the document, adding a text-layer.
 3. search for a valid date on the first page of the document to find out the document's original date.
 4. rename the document accordingly: `YYYYMMDD[o|x][SeqNo]-[Category1]-[Category2].pdf` [o|x] indicates if the date has been changed. o means that the date submitted by the scanner is used, x indicates that a new date has been identified in the document and has been used.
-5. Eventually all documents are 
+5. sync all documents to `destdir` specified in `archivar_30.cfg`, where [Category1] will be used as directory and [Category2] as subdirectory in which the document will be stored.
+6. log all activities to `logdir` specified in `archivar_30cfg`.
+
+## how to benefit
+With all PDF documents being searchable now, I am using search and index tools.
+Our family Windows-Laptop uses Lookeen, which is able to index network shares and offers full text search.
+I am currently playing around with DocFetcher and Recoll as well.
+After scanning the documents, they are immediately dropped in a cardboard archive box, one for each calendar year. In case I need the original it is rather easy to find again, in most cases it is sufficient to have the PDF at hand. In Germany the typical retention duration for documents is 10 years. Aftrr that time we shred most of the content of the respective archive box and only keep documents that we want to keep. The rest is still available as PDF.
+
