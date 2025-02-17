@@ -27,3 +27,31 @@ Ensure you have the following dependencies installed and configured before proce
   - pdftotext: A tool to extract text from PDF files. Install it using your package manager (e.g., sudo apt-get install poppler-utils).
   - rsync: A utility for efficiently transferring and synchronizing files. Install it using your package manager (e.g., sudo apt-get install rsync).
     
+## Installation
+
+    Install the Document Scanner
+
+        Follow the manufacturer's instructions to set up the Brother ADS-2800W scanner.
+
+        Connect the scanner to the local network.
+
+    Set Up Network Drive
+
+        Ensure the network drive is accessible on the always-on client.
+
+        Create a directory on the network drive to store scanned documents.
+
+    Configure the Document Scanner
+
+        Set up the scanner to save scanned PDFs directly to the network drive.
+
+        Define the filename convention to include the scan date, categories, and a sequential number.
+
+    Install Debian 12 on Document Server
+
+        Download and install Debian 12 on your document server.
+
+        Ensure the server can access the network drive.
+
+    Install Required Software Dependencies
+    
