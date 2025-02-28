@@ -56,7 +56,7 @@ Archivar will then ...
 1. iterate through all PDF files in `input_dir` specified in `archivar_30.cfg` config file
 2. move the files to `process_dir` and OCR the document, adding a text-layer.
 3. search for a valid date on the first page of the document to find out the document's original date.
-4. rename the document accordingly: `YYYYMMDD[o|x][SeqNo]-[Category1]-[Category2].pdf` [o|x] indicates if the date has been changed. o means that the date submitted by the scanner is used, x indicates that a new date has been identified in the document and has been used.
+4. rename the document accordingly: `YYYYMMDD[x][SeqNo]-[Category1]-[Category2].pdf` The additional x indicates that a new date has been identified in the document and has been used.
 5. sync all documents to `target_dir` specified in `archivar_30.cfg`, where [Category1] will be used as directory and [Category2] as subdirectory in which the document will be stored.
 6. clean up all documents in `process_dir`.
 7. log all activities to `log_dir` specified in `archivar_30.cfg`.
